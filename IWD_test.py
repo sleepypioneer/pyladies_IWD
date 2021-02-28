@@ -17,7 +17,7 @@ class TestPyladiesChapter(unittest.TestCase):
 
 class TestPyladiesIWD(unittest.TestCase):
     test_IWD = IWDClass()
-    year =  date.today().year
+    year = date.today().year
 
     def test_add_chapter(self):
         for i in range(4):
@@ -52,7 +52,7 @@ class TestPyladiesIWD(unittest.TestCase):
             '* test_chapter_3 PyLadies\n' + \
             '\n400 PyLadies members world wide!!'
         message = self.test_IWD.get_message()
-        
+
         self.assertEqual(expected, message)
 
 
