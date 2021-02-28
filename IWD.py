@@ -3,11 +3,17 @@ from datetime import date
 
 class PyladiesChapter:
 
-    def __init__(self, location: str, number_of_members: int, website: str = None):
+    def __init__(
+            self,
+            location: str,
+            number_of_members: int,
+            website: str = None):
         self.location = location
         # self.existing_since = existing_since existing_since: date.year,
-        self.number_of_members = number_of_members # if number_of_members is not None else 0
-        self.website = website if website is not None else 'https://pyladies.com/'
+        # if number_of_members is not None else 0
+        self.number_of_members = number_of_members
+        self.website = website if website is not None \
+            else 'https://pyladies.com/'
 
     def get_name(self):
         return f'{self.location} PyLadies'
@@ -23,7 +29,8 @@ class PyladiesIWD:
         self.chapters.append(chapter)
 
     def get_message(self):
-        message = f'Happy international Women\'s Day {self.year} \n\nChapters world wide: \n'
+        message = f'''Happy international Women\'s Day {self.year} \n
+Chapters world wide: \n'''
 
         chapter_names = self.get_chapter_names()
 
@@ -33,7 +40,7 @@ class PyladiesIWD:
         total_members = self.get_total_members()
 
         message = message + f'\n{total_members} PyLadies members world wide!!'
-        
+
         return message
 
     def get_chapter_names(self):
@@ -41,7 +48,7 @@ class PyladiesIWD:
         for chapter in self.chapters:
             name = chapter.get_name()
             chapter_names.append(name)
-        
+
         return chapter_names
 
     def get_total_members(self):
@@ -53,8 +60,10 @@ class PyladiesIWD:
 
 if __name__ == '__main__':
 
-    berlin_chapter = PyladiesChapter('Berlin', 2010, 'http://berlin.pyladies.com/') #date.year(2014)
-    hamburg_chapter = PyladiesChapter('Hamburg', 646, 'http://hamburg.pyladies.com/') #date.year(2019),
+    berlin_chapter = PyladiesChapter(
+        'Berlin', 2010, 'http://berlin.pyladies.com/')  # date.year(2014)
+    hamburg_chapter = PyladiesChapter(
+        'Hamburg', 646, 'http://hamburg.pyladies.com/')  # date.year(2019),
 
     IWD_2021 = PyladiesIWD()
 
