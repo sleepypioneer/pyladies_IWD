@@ -1,0 +1,14 @@
+name: celebrate
+on: [pull_request]
+jobs:
+  comment:
+    name: sends a tweet on pull requests being opened
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: sleepypioneer/actions_to_celebrate@main
+        with:
+          consumer-key: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
+          consumer-secret: ${{ secrets.TWITTER_CONSUMER_API_SECRET }}
+          access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
